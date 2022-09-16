@@ -1,0 +1,11 @@
+.feature_img{
+  height: 200px; 
+  width: 100%;
+  object-fit:cover;
+
+}
+
+.feature_body{
+  height: 100px;
+  overflow:scroll;
+}

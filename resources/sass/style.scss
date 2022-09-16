@@ -1,0 +1,24 @@
+.bg-top{
+    height:95vh; 
+    background-size:cover; 
+    background-position:50% 65%;
+
+}
+
+.feature_nav{
+    background-color: #222834;
+    color: white;
+
+    a, form, input, span{
+        background-color: #222834;
+        color: gray;
+    }
+
+    a:hover{
+        color: white;
+    }
+}
+
+.list_icon{
+    margin-right: 8px;
+}
