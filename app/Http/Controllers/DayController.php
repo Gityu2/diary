@@ -14,6 +14,7 @@ use Carbon\CarbonPeriod;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 
 class DayController extends Controller
@@ -418,6 +419,8 @@ class DayController extends Controller
     public function update(Request $request, $day_id)
     {
         $day = $this->day->findOrFail($day_id);
+        $url = $request->url;
+        $urls = str_replace('http://127.0.0.1:8000/', '', $url);
 
         $request->validate([
           'image' => 'max:1048|mimes:png,jpg,jpeg,gif'
@@ -439,25 +442,9 @@ class DayController extends Controller
         };
         
         $day->save();
-        // return redirect()->route('diary.month.show.list');
+        return redirect($urls);
+        return redirect()->back();
 
-        // $data = session()->all();
-        // $data = $request->session()->has('day');
-        // dd($data);
-
-        $links = $request->session()->has('links') ? session('links') : [];
-        // dd($links);
-        $currentLink = request()->path(); // Getting current URI like 'category/books/'
-        // dd($currentLink);
-        $b = array($currentLink,$links); // Putting it in the beginning of links array
-        // dd($b);
-        
-        return session()->put('a', 'value'); // Saving links array to the session
-
-        dd($a);
-        return redirect(session('links')[1]); // Will redirect 2 links back
-        // return url()->previous();
-        // return Redirect::to($request->request->get('http_referrer'));
     }
 
     /**
