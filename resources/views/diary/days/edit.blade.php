@@ -4,8 +4,6 @@
 
 @section('content')
     <div class="container w-50" style="height:93vh" >
-        test
-
         <h1 class="text-center">Edit Entry(Day)</h1>
         <form action="{{ route('diary.day.update', $day->id) }}" method="post" enctype="multipart/form-data">
         @csrf
