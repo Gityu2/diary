@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/scripts.js": "/js/scripts.js",
     "/js/chart-area.js": "/js/chart-area.js",
+    "/css/search.css": "/css/search.css",
+    "/css/table.css": "/css/table.css",
     "/css/style.css": "/css/style.css"
 }

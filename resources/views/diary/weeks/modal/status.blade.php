@@ -10,10 +10,10 @@
             <table class="table table-sm align-middle">
             <thead>
                 <tr class="table-primary small">
-                <th class="" style="width: 25%">Fact</th>
-                <th class="" style="width: 25%">Discovery</th>
-                <th class="" style="width: 25%">Lesson</th>
-                <th class="" style="width: 25%">Next Action</th>
+                <th class="col-3">Fact</th>
+                <th class="col-3">Discovery</th>
+                <th class="col-3">Lesson</th>
+                <th class="col-3">Next Action</th>
                 </tr>
             </thead>
             <tbody>

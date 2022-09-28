@@ -43,7 +43,7 @@ class WeekController extends Controller
         $week->next_action = $request->next_action;
         
         $week->save();
-        return redirect()->route('diary.month.show');
+        return redirect()->route('diary.month.show.list');
     }
 
     /**

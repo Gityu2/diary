@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
+@section('style')
+    <link href="{{ mix('css/search.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/table.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
-<div class="px-5 mt-2"   style="">
+<div class="container px-5 mt-2">
     @include('diary.years.contents.search')
 
     @include('diary.years.contents.current')

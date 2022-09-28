@@ -1,0 +1,27 @@
+thead tr {
+  border-bottom: hidden;
+  font-size: 12px;
+}
+
+.table-width-day {
+  min-width: 90px;
+}
+
+.table-width {
+  min-width: 200px;
+}
+
+.table-wrap {
+  white-space: nowrap;
+}
+
+tbody tr {
+  font-size: 12px;
+}
+tbody tr span {
+  font-size: 10px;
+}
+
+.table-wrap {
+  white-space: nowrap;
+}

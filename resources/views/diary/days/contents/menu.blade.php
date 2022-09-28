@@ -1,5 +1,5 @@
 @if ($day->like)
-<form action="{{ route('diary.like.destroy', $day->like->id) }}" class="d-inline" method="post">
+<form action="{{ route('diary.like.destroy', $day->like->id) }}" class="" method="post">
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-sm shadow-none  ">
@@ -7,7 +7,7 @@
     </button>
 </form>
 @else
-<form action="{{ route('diary.like.store', $day->id) }}"class="d-inline" method="post">
+<form action="{{ route('diary.like.store', $day->id) }}"class="" method="post">
     @csrf
     <button type="submit" class="btn btn-sm shadow-none">
     <i class="fa-regular fa-heart text-dark"></i>        
@@ -15,7 +15,7 @@
 </form>                
 @endif
 
-<div class="dropdown d-inline">
+<div class="dropdown">
 <button class="btn btn-sm" data-bs-toggle="dropdown">
     <i class="fa-solid fa-ellipsis"></i>  
 </button>  

@@ -2,6 +2,10 @@
 
 @section('titel', 'Regular Review List')
 
+@section('style')
+    <link href="{{ mix('css/table.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="px-5 mt-5">
         <div class="row justify-content-between">
@@ -13,16 +17,16 @@
                 <a href="{{ route('diary.day.show.regular.card') }}" class="btn btn-primary btn-sm">Card style</a>
             </div>
         </div>
-        
+        <div class="table-responsive">
         <table class="table table-sm align-middle">
             <thead>
                 <tr class="table-primary" style="border-bottom: hidden;">
-                    <th style="width: 10%">Day</th>
-                    <th style="width: 20%">Fact</th>
-                    <th style="width: 20%">Discovery</th>
-                    <th style="width: 20%">Lesson</th>
-                    <th style="width: 20%">Next Action</th>
-                    <th style="width: 10%"></th>
+                    <th class="table-width-day">Day</th>
+                    <th class="table-width">Fact</th>
+                    <th class="table-width">Discovery</th>
+                    <th class="table-width">Lesson</th>
+                    <th class="table-width">Next Action</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +59,7 @@
                         <td>{{ $day->lesson }}</td>
                         <td>{{ $day->next_action }}</td>
                         @if ($day->fact == null  && $day->discovery == null  && $day->lesson == null  && $day->next_action == null)
-                            <td style="font-size: 0.8rem;">※No data yet</td>        
+                            <td class="table-wrap" style="font-size: 0.8rem;">※No data yet</td>        
                         @else
                         <td>
                             @include('diary.days.contents.menu')
@@ -66,6 +70,7 @@
                 </tr>    
                 @endforeach     
             </tbody>
-        </table>   
+        </table>
+    </div>   
     </div>
 @endsection

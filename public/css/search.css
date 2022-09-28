@@ -1,0 +1,19 @@
+.search-width {
+  width: 310px;
+}
+
+.search-width-year {
+  width: 120px;
+}
+
+.search-width-month {
+  width: 130px;
+}
+
+.search-width-button {
+  width: 40px;
+}
+
+.search-font-size {
+  font-size: 12px;
+}
