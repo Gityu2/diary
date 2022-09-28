@@ -16,17 +16,19 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
+    {{-- bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/favorite.css') }}" rel="stylesheet">
+    @yield('style')
 
     {{-- Fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    {{-- bootstrap --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     {{-- favicon --}}
     <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}">
@@ -40,7 +42,9 @@
             <img src="{{ asset('images/logo-white.png') }}" alt="4S Diary" style="height: 30px">
         </a>
         <!-- Sidebar Toggle-->
+        @if (request()->is('diary/*' , 'admin/*'))
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        @endif
 
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -65,41 +69,30 @@
                             </li>
                         @endif
                     @else
-                        @if (Auth::user()->role_id == 2)
-                            <li class="d-flex align-items-center">
-                                <form action="{{ route('diary.search.show.list') }}" method="get" class="">
+                        <li class="nav-item dropdown ms-3 me-5">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
-                                    <div class="input-group">
-                                        <span class="input-group-text px-1"><i class="fa-solid fa-magnifying-glass" style="font-size:0.8rem"></i></span>
-                                        <input type="text" name="keyword" class="form-control h-25" placeholder="Search" >
-                                        <button type="submit" class=" form-control" style="display:none;"></button>
-                                    </div>
                                 </form>
-                            </li>
-                        @endif
-                                <li class="nav-item dropdown ms-3 me-5">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-        
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-        
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
+                            </div>
+                        </li>
                         </div>
                     @endguest
                 </ul>
             </div>
 
     </nav>
+
     @if (request()->is('diary/*' , 'admin/*'))
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -107,6 +100,14 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         @if (Auth::user()->role_id == 2)
+                        <form action="{{ route('diary.search.show.list') }}" method="get" class="px-3 mt-3">
+                            @csrf
+                            <div class="input-group">
+                                <span class="input-group-text px-1"><i class="fa-solid fa-magnifying-glass" style="font-size:0.8rem"></i></span>
+                                <input type="text" name="keyword" class="form-control h-25" placeholder="Search" >
+                                <button type="submit" class=" form-control" style="display:none;"></button>
+                            </div>
+                        </form>
                         <a href="{{ route('diary.day.create') }}" class="nav-link {{ request()->is('diary/day/create') ? 'text-white':''}}"><i class="fa-solid fa-file-circle-plus list_icon"></i> New Entry (Day)</a>
                         <a href="{{ route('diary.day.show.regular.list') }}" class="nav-link {{ request()->is('diary/day/show/regular/*') ? 'text-white':''}}"><i class="fa-solid fa-calendar-days list_icon"></i> Reglarly Reveiw</a>
                         <a href="{{ route('diary.month.show.list') }}" class="nav-link {{ request()->is('diary/month/show/*') ? 'text-white':''}}"><i class="fa-solid fa-calendar-days list_icon"></i> Monthly  Reveiw</a>
