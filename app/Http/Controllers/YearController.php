@@ -133,13 +133,15 @@ class YearController extends Controller
     {
       $year = $this->year->findOrFail($year_id);
 
+      $url = $request->url;
       $year->fact        = $request->fact;
       $year->discovery   = $request->discovery;
       $year->lesson      = $request->lesson;
       $year->next_action = $request->next_action;
       
       $year->save();
-      return redirect()->route('diary.year.show');    }
+      return redirect($url);
+    }
 
     /**
      * Remove the specified resource from storage.
