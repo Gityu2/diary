@@ -23,7 +23,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/favorite.css') }}" rel="stylesheet">
     @yield('style')
 
     {{-- Fontawesome --}}
@@ -131,7 +130,8 @@
 
         <div id="layoutSidenav_content">
             <main>
-                <div class="">
+                <div class="width-size">
+
                     @yield('content')
                 </div>
             </main>
@@ -140,3 +140,6 @@
 
 </body>
 </html>
+
+
+
