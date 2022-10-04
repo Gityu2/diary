@@ -37,13 +37,14 @@ class WeekController extends Controller
     {
         $week = $this->week->findOrFail($week_id);
   
+        $url = $request->url;
         $week->fact        = $request->fact;
         $week->discovery   = $request->discovery;
         $week->lesson      = $request->lesson;
         $week->next_action = $request->next_action;
         
         $week->save();
-        return redirect()->route('diary.month.show.list');
+        return redirect($url);
     }
 
     /**

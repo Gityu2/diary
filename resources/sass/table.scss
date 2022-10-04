@@ -1,6 +1,7 @@
 thead tr{
     border-bottom: hidden; 
     font-size: 12px;
+    text-align: center;
 }
 
 .table-width-day{
@@ -15,9 +16,11 @@ thead tr{
 }
 tbody {
     tr{
-    font-size: 12px;
+        font-size: 12px;
 
-
+    .td-size{
+        font-size: 0.8rem;
+    }
     span{
         font-size:10px;
     }

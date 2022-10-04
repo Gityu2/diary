@@ -374,7 +374,7 @@ class DayController extends Controller
         
         $day->save();
 
-        return redirect()->back();
+        return redirect()->route('diary.month.show.list');
     }
 
     public function saveImage($request)
@@ -404,9 +404,9 @@ class DayController extends Controller
      */
     public function edit($day_id)
     {
-      $day = $this->day->findOrFail($day_id);
+        $day = $this->day->findOrFail($day_id);
 
-      return view('diary.days.edit', compact('day'));
+        return view('diary.days.edit', compact('day'));
     }
 
     /**
@@ -423,7 +423,7 @@ class DayController extends Controller
         $urls = str_replace('http://127.0.0.1:8000/', '', $url);
 
         $request->validate([
-          'image' => 'max:1048|mimes:png,jpg,jpeg,gif'
+            'image' => 'max:1048|mimes:png,jpg,jpeg,gif'
 
         ]);
 
@@ -433,17 +433,16 @@ class DayController extends Controller
         $day->next_action = $request->next_action;
 
         if($request->image){
-          if($day->image){
-            $this->deleteImage($day->image);
-            $day->image = $this->saveImage($request);
-          }else{
-            $day->image = $this->saveImage($request);
-          }
+            if($day->image){
+                $this->deleteImage($day->image);
+                $day->image = $this->saveImage($request);
+            }else{
+                $day->image = $this->saveImage($request);
+            }
         };
         
         $day->save();
-        return redirect($urls);
-        return redirect()->back();
+        return redirect($url);
 
     }
 
@@ -455,18 +454,18 @@ class DayController extends Controller
      */
     public function delete($day_id)
     {
-      $day = $this->day->findOrFail($day_id);
+        $day = $this->day->findOrFail($day_id);
 
-      $this->deleteImage($day->image);
-      
-      $day->fact        = null;
-      $day->discovery   = null;
-      $day->lesson      = null;
-      $day->next_action = null;
-      $day->image       = null;
+        $this->deleteImage($day->image);
+        
+        $day->fact        = null;
+        $day->discovery   = null;
+        $day->lesson      = null;
+        $day->next_action = null;
+        $day->image       = null;
 
-      $day->save();
-      return redirect()->back();
+        $day->save();
+        return redirect()->back();
 
     }
 

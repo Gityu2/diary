@@ -204,15 +204,14 @@ class MonthController extends Controller
     {
       $month = $this->month->findOrFail($month_id);
 
-
-
+      $url = $request->url;
       $month->fact        = $request->fact;
       $month->discovery   = $request->discovery;
       $month->lesson      = $request->lesson;
       $month->next_action = $request->next_action;
       
       $month->save();
-      return redirect()->route('diary.month.show.list');
+      return redirect($url);
     }
 
     /**

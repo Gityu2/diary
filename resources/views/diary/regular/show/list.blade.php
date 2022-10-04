@@ -39,7 +39,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td style="font-size: 0.8rem;">※No data yet</td>
+                            <td class="data-size">※No data yet</td>
                             
                         @else
                             <td> 1 year ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('Y/n/j (D)', strtotime('-1 year')) }} -</span></td>
@@ -47,7 +47,7 @@
                             <td>{{ $day->discovery }}</td>
                             <td>{{ $day->lesson }}</td>
                             <td>{{ $day->next_action }}</td>
-                            <td>
+                            <td class="text-center">
                                 @include('diary.days.contents.menu')
                                 @include('diary.days.modal.status')
                             </td>  
@@ -61,7 +61,7 @@
                         @if ($day->fact == null  && $day->discovery == null  && $day->lesson == null  && $day->next_action == null)
                             <td class="table-wrap" style="font-size: 0.8rem;">※No data yet</td>        
                         @else
-                        <td>
+                        <td class="text-center">
                             @include('diary.days.contents.menu')
                             @include('diary.days.modal.status')
                         </td>

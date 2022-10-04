@@ -23,7 +23,7 @@
                 <td>{{ $day->discovery }}</td>
                 <td>{{ $day->lesson }}</td>
                 <td>{{ $day->next_action }}</td>
-                <td>
+                <td class="text-center">
                     @include('diary.days.contents.menu') 
                     @include('diary.days.modal.status')
                 </td>    
