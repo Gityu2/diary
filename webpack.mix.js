@@ -21,4 +21,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/table.scss', 'public/css')
     .sass('resources/sass/card.scss', 'public/css')
     .sass('resources/sass/create.scss', 'public/css')
+    .sass('resources/sass/dashboard.scss', 'public/css')
     .sourceMaps();
