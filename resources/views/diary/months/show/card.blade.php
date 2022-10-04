@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
+@section('title', 'Month Review')
+
+@section('style')
+    <link href="{{ mix('css/search.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/table.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/card.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
+
     <div class="px-5 mt-2">
         @include('diary.months.contents.search')
 

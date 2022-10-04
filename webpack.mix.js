@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/style.scss', 'public/css')
     .sass('resources/sass/search.scss', 'public/css')
     .sass('resources/sass/table.scss', 'public/css')
+    .sass('resources/sass/card.scss', 'public/css')
     .sourceMaps();

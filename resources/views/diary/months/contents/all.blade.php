@@ -20,7 +20,7 @@
                 <td>{{ $month->lesson }}</td>
                 <td>{{ $month->next_action }}</td>
                 <td>            
-                    <div class="dropdown d-inline">
+                    <div class="dropstart d-inline">
                     <button class="btn btn-sm" data-bs-toggle="dropdown">
                         <i class="fa-solid fa-ellipsis"></i>  
                     </button>  

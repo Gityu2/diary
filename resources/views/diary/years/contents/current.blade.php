@@ -19,7 +19,7 @@
                 <td>{{ $year->lesson }}</td>
                 <td>{{ $year->next_action }}</td>
                 <td>                
-                    <div class="dropdown d-inline">
+                    <div class="dropstart d-inline">
                     <button class="btn btn-sm" data-bs-toggle="dropdown">
                         <i class="fa-solid fa-ellipsis"></i>  
                     </button>  

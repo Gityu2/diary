@@ -2,6 +2,10 @@
 
 @section('titel', 'Regular Review Card')
 
+@section('style')
+    <link href="{{ mix('css/card.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="px-5 mt-5">
         <div class="row justify-content-between">
@@ -15,7 +19,7 @@
         </div>
         <div class="row mt-3">
             @foreach ($days as $index => $day)
-                <div class="col-3">
+                <div class="col-6 col-md-4 col-lg-3">
                     <p class="text-center mb-1 fs-5">{{ $index }} ago</p>
                     <div class="card mb-5">
                         <div class="card-header">
@@ -31,11 +35,11 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="card-image" class="w-100">
+                        <div class="card-image">
                             @if ($day->image)
-                                <img src="" alt="">
+                                <img src="{{ asset('storage/images/' . $day->image) }}" alt="Image" class="card-image-size">
                             @else
-                            <img src="{{ asset('storage/images/no_image.png') }}" alt="No image" class="feature_img">
+                                <img src="{{ asset('images/no_image.png') }}" alt="No image" class="card-image-size">
                             @endif
                         </div>
                         <div class="card-body feature_body">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DayLike;
+use App\Models\Day;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,23 +40,25 @@ class DayLikeController extends Controller
      */
     public function showList()
     {
-        $likes = $this->like->join('days', 'day_likes.day_id', 'days.id')
-                            ->where('day_likes.user_id', Auth::user()->id)
+        $month_days = Day::whereHas('like', function($query){
+                            $query->where('user_id', Auth::user()->id);
+                            })
                             ->orderBy('date')
                             ->get();
 
-        return view('diary.favorites.show.list')->with('likes', $likes);
+        return view('diary.favorites.show.list')->with('month_days', $month_days);
     
     }
 
     public function showCard()
     {
-        $likes = $this->like->join('days', 'day_likes.day_id', 'days.id')
-                            ->where('day_likes.user_id', Auth::user()->id)
-                            ->orderBy('date')
-                            ->get();
+        $month_days = Day::whereHas('like', function($query){
+            $query->where('user_id', Auth::user()->id);
+            })
+            ->orderBy('date')
+            ->get();
         
-        return view('diary.favorites.show.card')->with('likes', $likes);
+        return view('diary.favorites.show.card')->with('month_days', $month_days);
     
     }
 

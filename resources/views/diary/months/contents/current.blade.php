@@ -19,14 +19,14 @@
                 <td>{{ $month->lesson }}</td>
                 <td>{{ $month->next_action }}</td>
                 <td>                
-                    <div class="dropdown">
+                    <div class="dropstart">
                         <button class="btn btn-sm" data-bs-toggle="dropdown">
                             <i class="fa-solid fa-ellipsis"></i>  
                         </button>  
 
                         <div class="dropdown-menu"> 
                             <a href="{{ route('diary.month.edit', $month->id) }}" class="dropdown-item text-decorateion-none text-dark"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
-
+                            
                             <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#delete-month-{{ $month->id }}">
                                 <i class="fa-solid fa-trash-can"></i>Reset                
                             </button>
