@@ -10,10 +10,10 @@
             <table class="table table-sm align-middle">
             <thead>
                 <tr class="table-primary small">
-                <th class="" style="width: 25%">Fact</th>
-                <th class="" style="width: 25%">Discovery</th>
-                <th class="" style="width: 25%">Lesson</th>
-                <th class="" style="width: 25%">Next Action</th>
+                <th class="col-3">Fact</th>
+                <th class="col-3">Discovery</th>
+                <th class="col-3">Lesson</th>
+                <th class="col-3">Next Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +28,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <form action="{{ route('diary.day.delete', $day->id) }}" method="post">
+            <form action="{{ route('diary.day.reset', $day->id) }}" method="post">
             @csrf
             @method('PATCH')
             <button type="submit" class="btn btn-danger">Delete</button>

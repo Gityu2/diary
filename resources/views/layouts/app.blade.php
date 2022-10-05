@@ -45,51 +45,46 @@
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         @endif
 
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        </div>
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto ">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
 
-            </div>
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto ">
-                    <!-- Authentication Links -->
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown ms-3 me-5">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
 
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown ms-3 me-5">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
-                    @endguest
-                </ul>
-            </div>
-
+                    </li>
+                @endguest
+            </ul>
     </nav>
 
     @if (request()->is('diary/*' , 'admin/*'))
@@ -112,28 +107,24 @@
                         <a href="{{ route('diary.month.show.list') }}" class="nav-link {{ request()->is('diary/month/show/*') ? 'text-white':''}}"><i class="fa-solid fa-calendar-days list_icon"></i> Monthly  Reveiw</a>
                         <a href="{{ route('diary.year.show') }}" class="nav-link {{ request()->is('diary/year/show') ? 'text-white':''}}"><i class="fa-solid fa-calendar-days list_icon"></i> Yearly   Reveiw</a>
                         <a href="{{ route('diary.like.show.list') }}" class="nav-link {{ request()->is('diary/like/show/*') ? 'text-white':''}}"><i class="fa-solid fa-heart list_icon"></i> Favorite</a>
-                        <a type="button" class="ms-4 text-decoration-none text-danger" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#delete-account list_icon">
+                        <a type="button" class="ms-4 text-decoration-none text-danger list_icon" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#delete-account" >
                             Delete your account
                         </a>
                         @endif
                         @if (Auth::user()->role_id == 1)
                         <a href="{{ route('admin.show.dashboard') }}" class="nav-link {{ request()->is('diary/like/show/*') ? 'text-white':''}}"><i class="fa-solid fa-chart-line list_icon"></i></i> Dashboard</a>
-                        {{-- <a href="{{ route('admin.show.users') }}" class="nav-link {{ request()->is('diary/like/show/*') ? 'text-white':''}}"><i class="fa-solid fa-user list_icon"></i></i> Users</a> --}}
                         @endif
 
                     </div>
                 </div>
             </nav>
         </div>
-        {{-- @include('layouts.modal.status') --}}
+        @include('layouts.modal.status')
         @endif
 
         <div id="layoutSidenav_content">
             <main>
-                <div class="width-size">
-
-                    @yield('content')
-                </div>
+                @yield('content')
             </main>
         </div>
     </div>
