@@ -4,18 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\DayLike;
 use App\Models\Day;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DayLikeController extends Controller
 {
-    private $like;
-
-    public function __construct(DayLike $like)
-    {
-        $this->like = $like;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -24,11 +16,11 @@ class DayLikeController extends Controller
      */
     public function store($day_id)
     {
-        $this->like->user_id = Auth::user()->id;
-        $this->like->day_id  = $day_id;
+        $like = new DayLike;
+        $like->user_id = Auth::user()->id;
+        $like->day_id  = $day_id;
 
-        // return $this->like;
-        $this->like->save();
+        $like->save();
         return redirect()->back();
     }
 
@@ -70,8 +62,7 @@ class DayLikeController extends Controller
      */
     public function destroy($day_id)
     {
-        $this->like->destroy($day_id);
-
+        DayLike::destroy($day_id);
         return redirect()->back();
     }
 }

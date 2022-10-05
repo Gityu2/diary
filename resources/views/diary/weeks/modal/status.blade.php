@@ -1,4 +1,4 @@
-<div class="modal fade" id="delete-week-{{ $week->id }}" >
+<div class="modal fade" id="delete-week" >
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content border-danger">
         <div class="modal-header border-danger">
@@ -28,7 +28,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <form action="{{ route('diary.week.delete', $week->id) }}" method="post">
+            <form action="{{ route('diary.week.reset', $week->id) }}" method="post">
             @csrf
             @method('PATCH')
             <button type="submit" class="btn btn-danger">Delete</button>

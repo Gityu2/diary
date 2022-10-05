@@ -1,4 +1,4 @@
-<form action="{{ route('diary.month.show.list') }}" method="get" class="input-group ms-auto mt-3 search-width">      
+<form action="{{ request()->is('diary/month/show/list') ?  route('diary.month.show.list') : route('diary.month.show.card')}}" method="get" class="input-group ms-auto mt-3 search-width">      
     
     <select name="year_info" id="" class="form-select py-1 search-width-year search-font-size" required>
         <option value="" >Select Year</option>
