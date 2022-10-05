@@ -6,7 +6,6 @@ use App\Models\Day;
 use App\Models\Week;
 use App\Models\Month;
 use App\Models\Year;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -49,12 +48,7 @@ class DayController extends Controller
         return view('diary.days.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -236,15 +230,4 @@ class DayController extends Controller
 
         return redirect()->back();
     }
-
-    // public function destroy($user_id)
-    // {
-    //     Day::where('user_id', $user_id)->delete();
-    //     Week::where('user_id', $user_id)->delete();
-    //     Month::where('user_id', $user_id)->delete();
-    //     Year::where('user_id', $user_id)->delete();
-    //     User::where('id', $user_id)->delete();
-
-    //     return redirect('/');
-    // }
 }
