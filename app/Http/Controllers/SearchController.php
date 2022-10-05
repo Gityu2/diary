@@ -7,7 +7,6 @@ use App\Models\Week;
 use App\Models\Month;
 use App\Models\Year;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class SearchController extends Controller
 {

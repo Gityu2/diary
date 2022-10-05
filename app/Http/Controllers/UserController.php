@@ -7,20 +7,18 @@ use App\Models\Week;
 use App\Models\Month;
 use App\Models\Year;
 use App\Models\User;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    const LOCAL_STORAGE_FOLDER = 'public/images/';
 
     public function destroy($user_id)
     {
-        $days = Day::where('user_id', $user_id)->get();
-        foreach($days as $day){
-            $this->deleteImage($day->image);
-        };
-        
-        $days->delete();
+        $image_days = Day::where('user_id', $user_id)->whereNotNull('image')->get();
+        foreach($image_days as $image_day){
+            app()->make(DayController::class)->deleteImage($image_day->image);
+        } 
+
+        Day::where('user_id', $user_id)->delete();
         Week::where('user_id', $user_id)->delete();
         Month::where('user_id', $user_id)->delete();
         Year::where('user_id', $user_id)->delete();
@@ -29,12 +27,4 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    public function deleteImage($image_name)
-    {
-        $image_path = self::LOCAL_STORAGE_FOLDER . $image_name;
-
-        if(Storage::disk('local')->exists($image_path)):
-            Storage::disk('local')->delete($image_path);
-        endif;
-    }
 }
