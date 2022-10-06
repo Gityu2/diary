@@ -7,6 +7,7 @@ use App\Models\Week;
 use App\Models\Month;
 use App\Models\Year;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SearchController extends Controller
 {
@@ -48,33 +49,49 @@ class SearchController extends Controller
 
     public function getDate($keyword)
     {
-        $month_days = Day::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
-
-        $year_weeks = Week::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
-
-        $year_months = Month::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
-
-        $years        = Year::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
+        $month_days = Day::where('user_id', Auth::id())
+                                ->where(function ($query) use ($keyword) {
+                                    $query
+                                        ->orWhere('fact', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('discovery', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('lesson', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('next_action', 'LIKE', "%{$keyword}%");
+                                })
+                                ->orderBy('date')
+                                ->get();
+                                
+                                $year_weeks = Week::where('user_id', Auth::id())
+                                ->where(function ($query) use ($keyword) {
+                                    $query
+                                        ->orWhere('fact', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('discovery', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('lesson', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('next_action', 'LIKE', "%{$keyword}%");
+                                })
+                                ->orderBy('date')
+                                ->get();
+                                
+                                $year_months = Month::where('user_id', Auth::id())
+                                ->where(function ($query) use ($keyword) {
+                                    $query
+                                        ->orWhere('fact', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('discovery', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('lesson', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('next_action', 'LIKE', "%{$keyword}%");
+                                })
+                                ->orderBy('date')
+                                ->get();
+                                
+        $years        = Year::where('user_id', Auth::id())
+                                ->where(function ($query) use ($keyword) {
+                                    $query
+                                        ->orWhere('fact', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('discovery', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('lesson', 'LIKE', "%{$keyword}%")
+                                        ->orWhere('next_action', 'LIKE', "%{$keyword}%");
+                                })
+                                ->orderBy('date')
+                                ->get();
 
         return array($month_days, $year_weeks, $year_months, $years);
     }

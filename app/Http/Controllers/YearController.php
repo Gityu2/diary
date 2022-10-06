@@ -7,6 +7,7 @@ use App\Models\Month;
 use App\Models\Week;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class YearController extends Controller
 {
@@ -22,14 +23,14 @@ class YearController extends Controller
         $years       = Year::get();
 
         if ($year_info) {
-            $year        = Year::where('date', '=', Carbon::create($year_info . '-1-1'))->first();
-            $year_months = Month::whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])->get();
-            $year_weeks  = Week::whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])->get();
+            $year        = Year::where('user_id', Auth::id())->where('date', '=', Carbon::create($year_info . '-1-1'))->first();
+            $year_months = Month::where('user_id', Auth::id())->whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])->get();
+            $year_weeks  = Week::where('user_id', Auth::id())->whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])->get();
 
         } else {
-            $year        = Year::where('date', '=', now()->format('Y-1-1'))->first();
-            $year_months = Month::whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])->get();
-            $year_weeks  = Week::whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])->get();
+            $year        = Year::where('user_id', Auth::id())->where('date', '=', now()->format('Y-1-1'))->first();
+            $year_months = Month::where('user_id', Auth::id())->whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])->get();
+            $year_weeks  = Week::where('user_id', Auth::id())->whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])->get();
         };
 
         return view('diary.years.show')
