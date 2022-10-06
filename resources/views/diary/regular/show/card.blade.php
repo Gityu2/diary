@@ -19,20 +19,20 @@
         </div>
         <div class="row mt-3">
             @foreach ($days as $index => $day)
+                @if ($index !== '1 year' && $day !== null)
                 <div class="col-6 col-md-4 col-lg-3">
                     <p class="text-center mb-1 fs-5">{{ $index }} ago</p>
                     <div class="card mb-5">
                         <div class="card-header">
                             <div class="row justify-content-between">
-                                @if ($index == '1 year')
-                                    <div class="col-auto">{{ date('Y/n/j(D)', strtotime($day->date)) }}</div>
-                                @else  
-                                    <div class="col-auto">{{ date('n/j(D)', strtotime($day->date)) }}</div>
-                                                                    
-                                    @endif
-                                    <div class="col-auto px-0">
-                                        @include('diary.days.contents.menu')              
-                                    </div>
+                                <div class="col-auto">{{ date('n/j(D)', strtotime($day->date)) }}</div>
+                                <div class="col-auto px-0">
+                                    @if ($day->fact == null  && $day->discovery == null  && $day->lesson == null  && $day->next_action == null)
+                                    <p class="m-0 p-0 me-1 data-size">※No data</p>   
+                                    @else
+                                    @include('diary.days.contents.menu')       
+                                    @endif                                 
+                                </div>
                             </div>
                         </div>
                         <div class="card-image">
@@ -43,10 +43,34 @@
                             @endif
                         </div>
                         <div class="card-body feature_body">
-                            {{ $day->fact }}
+                            @if ($index == '1 year' && $day !== null)
+                                {{ $day->fact }}
+                            @else
+                            
+                            @endif
                         </div>
                     </div>
-                </div>  
+                </div>                     
+                @else
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <p class="text-center mb-1 fs-5">{{ $index }} ago</p>
+                        <div class="card mb-5">
+                            <div class="card-header">
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">{{ date('Y/n/j(D)', strtotime('-1 year')) }}</div>
+                                    <div class="col-auto px-0">
+                                        <p class="m-0 p-0 data-size">※No data</p>       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                    <img src="{{ asset('images/no_image.png') }}" alt="No image" class="card-image-size">
+                            <div class="card-body feature_body"></div>
+                            </div>
+                        </div>
+                    </div>  
+                    
+                @endif
             @endforeach
         </div>
     </div>
