@@ -29,3 +29,4 @@
         @include('diary.days.contents.card')
     </div>
 @endsection
+

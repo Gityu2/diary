@@ -13,7 +13,7 @@
         @endif
 
         <label for="date" class="label-form small">■Date</label>
-        <input type="date" name="date" id="date" class="form-control" value="{{ request()->is('diary/day/create') ? old('date') : old('date', $day->date) }}">
+        <input type="date" name="date" id="date" class="form-control" value="{{ request()->is('diary/day/create') ? old('date') : old('date', $day->date) }}"  {{ request()->is('diary/day/create') ? "" : "readonly" }}>
         @error('date')
             <p class="text-danger small m-0 p-0">{{ $message }}</p>
         @enderror

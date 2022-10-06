@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'View all')
+
+@section('style')
+    <link href="{{ mix('css/card.css') }}" rel="stylesheet">
+@endsection
     
 @section('content')
     <div class="px-5 mt-3">
