@@ -1,6 +1,6 @@
 <div class="row mt-3">
     @foreach ($month_days as $day)
-        <div class="col-6 col-md-4 col-lg-3">
+        <div class="col-6 col-md-4 col-xl-3">
         <div class="card mb-5">
             <div class="card-header">
                 <div class="row justify-content-between">

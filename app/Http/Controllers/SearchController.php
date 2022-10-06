@@ -20,33 +20,7 @@ class SearchController extends Controller
     {   
         $keyword    = $request->keyword;
 
-        $month_days = Day::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
-                    
-        $year_weeks = Week::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
-                    
-        $year_months = Month::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();
-
-        $years        = Year::orWhere('fact', 'LIKE', "%{$keyword}%")
-                            ->orWhere('discovery', 'LIKE', "%{$keyword}%")
-                            ->orWhere('lesson', 'LIKE', "%{$keyword}%")
-                            ->orWhere('next_action', 'LIKE', "%{$keyword}%")
-                            ->orderBy('date')
-                            ->get();                           
+        list($month_days, $year_weeks, $year_months, $years) = $this->getDate($keyword);
 
         return view('diary.search.show.list')
                     ->with('years', $years)
@@ -61,20 +35,33 @@ class SearchController extends Controller
     {   
         $keyword    = $request->keyword;
 
+        list($month_days, $year_weeks, $year_months, $years) = $this->getDate($keyword);
+
+        return view('diary.search.show.card')
+                    ->with('year', $years)
+                    ->with('year_months', $year_months)
+                    ->with('year_weeks', $year_weeks)
+                    ->with('month_days', $month_days)
+                    ->with('keyword', $keyword);
+                            
+    }
+
+    public function getDate($keyword)
+    {
         $month_days = Day::orWhere('fact', 'LIKE', "%{$keyword}%")
                             ->orWhere('discovery', 'LIKE', "%{$keyword}%")
                             ->orWhere('lesson', 'LIKE', "%{$keyword}%")
                             ->orWhere('next_action', 'LIKE', "%{$keyword}%")
                             ->orderBy('date')
                             ->get();
-                    
+
         $year_weeks = Week::orWhere('fact', 'LIKE', "%{$keyword}%")
                             ->orWhere('discovery', 'LIKE', "%{$keyword}%")
                             ->orWhere('lesson', 'LIKE', "%{$keyword}%")
                             ->orWhere('next_action', 'LIKE', "%{$keyword}%")
                             ->orderBy('date')
                             ->get();
-                    
+
         $year_months = Month::orWhere('fact', 'LIKE', "%{$keyword}%")
                             ->orWhere('discovery', 'LIKE', "%{$keyword}%")
                             ->orWhere('lesson', 'LIKE', "%{$keyword}%")
@@ -82,20 +69,14 @@ class SearchController extends Controller
                             ->orderBy('date')
                             ->get();
 
-        $year        = Year::orWhere('fact', 'LIKE', "%{$keyword}%")
+        $years        = Year::orWhere('fact', 'LIKE', "%{$keyword}%")
                             ->orWhere('discovery', 'LIKE', "%{$keyword}%")
                             ->orWhere('lesson', 'LIKE', "%{$keyword}%")
                             ->orWhere('next_action', 'LIKE', "%{$keyword}%")
                             ->orderBy('date')
                             ->get();
 
-        return view('diary.search.show.card')
-                    ->with('year', $year)
-                    ->with('year_months', $year_months)
-                    ->with('year_weeks', $year_weeks)
-                    ->with('month_days', $month_days)
-                    ->with('keyword', $keyword);
-                            
+        return array($month_days, $year_weeks, $year_months, $years);
     }
 
 }
