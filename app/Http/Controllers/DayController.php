@@ -8,7 +8,6 @@ use App\Models\Month;
 use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -79,6 +78,7 @@ class DayController extends Controller
         return redirect()->route('diary.month.show.list');
     }
 
+
     public function saveImage($request)
     {
         $image_name = time() . '.' . $request->image->extension();
@@ -87,6 +87,7 @@ class DayController extends Controller
         
         return $image_name;
     }
+
 
     public function deleteImage($image_name)
     {
@@ -97,62 +98,19 @@ class DayController extends Controller
         endif;
     }
 
+
     public function showRegularList()
-    {
-
-        $day_1week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(1))))->first();
-        $day_2week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(2))))->first();
-        $day_3week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(3))))->first();
-        $day_1month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(1))))->first();
-        $day_2month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(2))))->first();
-        $day_3month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(3))))->first();
-        $day_6month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(6))))->first();
-        $day_1year  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subYear(1))))->first();
-
-        $days = collect(
-                [
-                '1 week'  => $day_1week, 
-                '2 week'  => $day_2week, 
-                '3 week'  => $day_3week, 
-                '1 month' => $day_1month, 
-                '2 month' => $day_2month, 
-                '3 month' => $day_3month, 
-                '6 month' => $day_6month,
-                '1 year'  => null
-                ]);
-        
-        if($day_1year){
-            $days = $days->merge(['1 year' => $day_1year]);
-        };
+    {        
+        $days = Day::getRegularDate();
 
         return view('diary.regular.show.list')
                 ->with('days', $days);
     }
 
+
     public function showRegularCard()
     {
-        $day_1week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(1))))->first();
-        $day_2week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(2))))->first();
-        $day_3week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(3))))->first();
-        $day_1month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(1))))->first();
-        $day_2month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(2))))->first();
-        $day_3month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(3))))->first();
-        $day_6month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(6))))->first();
-        $day_1year  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subYear(1))))->first();
-
-        $days = collect([
-                '1 week'  => $day_1week, 
-                '2 week'  => $day_2week, 
-                '3 week'  => $day_3week, 
-                '1 month' => $day_1month, 
-                '2 month' => $day_2month, 
-                '3 month' => $day_3month, 
-                '6 month' => $day_6month
-                ]);
-        
-        if($day_1year){
-            $days = $days->merge(['1 year' => $day_1year]);
-        };
+        $days = Day::getRegularDate();
 
         return view('diary.regular.show.card')
                 ->with('days', $days);
@@ -171,6 +129,7 @@ class DayController extends Controller
 
         return view('diary.days.edit')->with('day', $day);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -207,6 +166,7 @@ class DayController extends Controller
         return redirect($url);
 
     }
+
 
     /**
      * Remove the specified resource from storage.

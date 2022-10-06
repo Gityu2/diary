@@ -32,40 +32,27 @@
             <tbody>
                 @foreach ($days as $index => $day)  
                 <tr>
-                    @if ($index == '1 year')
-                        @if ($day == null)
-                            <td> 1 year ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('Y/n/j (D)', strtotime('-1 year')) }} -</span></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="data-size">※No data yet</td>
-                            
-                        @else
-                            <td> 1 year ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('Y/n/j (D)', strtotime('-1 year')) }} -</span></td>
-                            <td>{{ $day->fact }}</td>
-                            <td>{{ $day->discovery }}</td>
-                            <td>{{ $day->lesson }}</td>
-                            <td>{{ $day->next_action }}</td>
-                            <td class="text-center">
-                                @include('diary.days.contents.menu')
-                                @include('diary.days.modal.status')
-                            </td>  
-                        @endif
-                    @else
+                    @if ($index !== '1 year' && $day !== null)
                         <td>{{ $index }} ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('n/j (D)', strtotime($day->date)) }} -</span></td>
                         <td>{{ $day->fact }}</td>
                         <td>{{ $day->discovery }}</td>
                         <td>{{ $day->lesson }}</td>
                         <td>{{ $day->next_action }}</td>
                         @if ($day->fact == null  && $day->discovery == null  && $day->lesson == null  && $day->next_action == null)
-                            <td class="table-wrap" style="font-size: 0.8rem;">※No data yet</td>        
+                            <td class="table-wrap data-size">※No data</td>        
                         @else
                         <td class="text-center">
                             @include('diary.days.contents.menu')
                             @include('diary.days.modal.status')
                         </td>
                         @endif
+                    @else
+                        <td> 1 year ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('Y/n/j (D)', strtotime('-1 year')) }} -</span></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="data-size">※No data</td>
                     @endif
                 </tr>    
                 @endforeach     

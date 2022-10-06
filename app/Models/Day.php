@@ -88,5 +88,35 @@ class Day extends Model
 
     }
 
+    public static function getRegularDate()
+    {
+        $day_1week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(1))))->first();
+        $day_2week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(2))))->first();
+        $day_3week  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subWeek(3))))->first();
+        $day_1month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(1))))->first();
+        $day_2month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(2))))->first();
+        $day_3month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(3))))->first();
+        $day_6month = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subMonth(6))))->first();
+        $day_1year  = Day::where('date', '=', date('Y-m-d',strtotime(Carbon::create(now())->subYear(1))))->first();
+
+        $days = collect(
+                [
+                '1 week'  => $day_1week, 
+                '2 week'  => $day_2week, 
+                '3 week'  => $day_3week, 
+                '1 month' => $day_1month, 
+                '2 month' => $day_2month, 
+                '3 month' => $day_3month, 
+                '6 month' => $day_6month,
+                '1 year'  => $day_1year
+                ]);
+        
+        if($day_1year){
+            $days = $days->merge(['1 year' => $day_1year]);
+        };
+
+        return $days;
+    }
+
 
 }
