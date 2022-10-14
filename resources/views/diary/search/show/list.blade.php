@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'View all')
+@section('title', 'Search')
 
 @section('style')
     <link href="{{ mix('css/table.css') }}" rel="stylesheet">

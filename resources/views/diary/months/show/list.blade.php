@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Month Review')
+@section('title', 'Month review list')
 
 @section('style')
     <link href="{{ mix('css/search.css') }}" rel="stylesheet">
