@@ -11,11 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
+// mix.webpackConfig({
+//     stats: {
+//         children: true,
+//     },
+// });
+
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/scripts.js', 'public/js')
     .js('resources/js/chart-area.js', 'public/js')
-    // .css('resources/css/app.css', 'public/css')
-    // .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/style.scss', 'public/css')
     .sass('resources/sass/search.scss', 'public/css')
     .sass('resources/sass/table.scss', 'public/css')
