@@ -10,8 +10,8 @@
     <title>4S Diary @yield('title')</title>
     
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/scripts.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

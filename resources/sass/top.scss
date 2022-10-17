@@ -1,10 +1,17 @@
 .bg-top{
+    filter: brightness(130%);
+}
+.bg{
     background-image:url('/images/background/bg-top4.jpeg');
     height:100vh; 
     position: relative; 
     background-size:cover; 
     background-position:50% 65%;
-    filter: brightness(130%);
+
+    .card{
+        margin-top: 100px;
+    }
+
 
     .message{
         text-align: center;

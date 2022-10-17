@@ -1,12 +1,17 @@
 @extends('layouts.app')
 
+@section('title', 'Login')
+
+@section('style')
+    <link href="{{ mix('css/top.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container-fulid">
-  <div class="bg-top" style="background-image:url('{{ asset('images/background/bg-top4.jpeg') }}'); height:100vh; position: relative;">
-    
+  <div class="bg">
         <div class="row justify-content-center" >
             <div class="col-md-5">
-                <div class="card"  style="margin-top: 100px;">
+                <div class="card">
                     <div class="card-header">{{ __('Login') }}</div>
     
                     <div class="card-body py-5">
