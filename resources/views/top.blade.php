@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container-fulid">
-        <div class="bg-top">
+        <div class="bg-top bg">
 
             <div class="row">
                 <div class="message">
