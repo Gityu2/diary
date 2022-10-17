@@ -1,0 +1,146 @@
+.bg-top{
+    background-image:url('/images/background/bg-top4.jpeg');
+    height:100vh; 
+    position: relative; 
+    background-size:cover; 
+    background-position:50% 65%;
+    filter: brightness(130%);
+
+    .message{
+        text-align: center;
+        position: absolute; top:35%;
+    }
+    h1{
+        font-size: 1.75rem;
+        font-style: italic;
+    }    
+
+    .arrow {
+        display: block ;
+        margin: 0 auto;
+        margin-top: 200px;
+        color: #fff;
+        text-decoration:  none;
+        background-color: gray;
+        border-radius: 50%;
+        position:  relative;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+    }
+    
+    .arrow::before {
+        content:  '';
+        width: 15px;
+        height: 15px;
+        display:  block;
+        border-top: solid 2px;
+        border-right: solid 2px;
+        transform: rotate(135deg);
+        position:  absolute;
+        top: 0;
+        bottom: 5px;
+        left:  0;
+        right:  0;
+        margin:  auto;
+    }
+    @media (max-width: 1200px) {
+        p{
+            font-size: 1.5rem;
+        }
+    }
+
+}
+
+
+section{
+    height: 100vh;
+
+    .benefit-width{
+        width: 60%;
+        margin-top: 48px;
+    }
+
+    .benefit{
+        text-align: center;
+        height: 200px;
+        padding: 0 24px;
+    }
+
+    h1{
+        white-space: nowrap;
+        font-size: 2.5rem;
+        margin-top: 48px;
+        margin-bottom: 48px;
+        text-align: center;
+    }
+    i{
+        font-size: 5rem;
+    }
+    h2{
+        font-size: 1.25rem;
+        margin-top: 16px;
+        white-space: nowrap;
+
+
+    }
+    p{
+        color:#6c757d;
+        font-size: 0.875em;
+        text-align: justify;
+
+    }
+    
+    .benefit:nth-of-type(n+4){
+        margin-top: 48px;
+    }	
+
+
+    @media (max-width: 1200px) {
+        .benefit-width{
+            width: 75%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .benefit-width{
+            width: 85%;
+        }
+
+        h1{
+            font-size: 2rem;  
+        }
+        
+        i{
+            font-size: 4rem;
+        }
+        .benefit:nth-of-type(n+3){
+            margin-top: 24px;
+        }	
+    }
+    
+    @media (max-width: 576px) {
+        .benefit-width{
+            width:90%;
+        }
+        h1{
+            font-size: 1.5rem;    
+        }
+
+        i{
+            font-size: 3rem;
+        }
+
+        h2{
+            font-size: 1rem;
+        }
+        p{
+            color:#6c757d;
+            font-size: 0.75em;
+        }
+        .benefit:nth-of-type(n+3){
+            margin-top: 0;
+        }	
+    }
+
+}

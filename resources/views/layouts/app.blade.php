@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>4S Diary - @yield('title')</title>
+    <title>4S Diary @yield('title')</title>
     
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
