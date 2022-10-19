@@ -14,7 +14,7 @@
     <tbody>
         @foreach ($month_weeks as $week)
         <tr>
-            <td class="table-wrap">{{ $week->week }} week <br><span class="table-wrap">({{ date('n/j',strtotime('last monday', strtotime($week->date))) }}- {{ date('n/j',strtotime('sunday', strtotime($week->date))) }})</span></td>
+            <td class="table-wrap text-center">{{ $week->week }} week <br><span class="table-wrap">({{ date('n/j',strtotime('last monday', strtotime($week->date))) }}- {{ date('n/j',strtotime('sunday', strtotime($week->date))) }})</span></td>
             <td><p>{{ $week->fact }} </p></td>
             <td>{{ $week->discovery }}</td>
             <td>{{ $week->lesson }}</td>

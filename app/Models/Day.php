@@ -110,10 +110,6 @@ class Day extends Model
                 '6 month' => $day_6month,
                 '1 year'  => $day_1year
                 ]);
-        
-        if($day_1year){
-            $days = $days->merge(['1 year' => $day_1year]);
-        };
 
         return $days;
     }

@@ -8,12 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DayLikeController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store($day_id)
     {
         $like = new DayLike;
@@ -24,12 +19,7 @@ class DayLikeController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\DayLike  $dayLike
-     * @return \Illuminate\Http\Response
-     */
+
     public function showList()
     {
         $month_days = Day::whereHas('like', function($query){
@@ -54,12 +44,6 @@ class DayLikeController extends Controller
     
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DayLike  $dayLike
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($day_id)
     {
         DayLike::destroy($day_id);

@@ -10,17 +10,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Carbon;
+use Carbon\CarbonPeriod;
+
 
 class DayController extends Controller
 {
 
     const LOCAL_STORAGE_FOLDER = 'public/images/';
     
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     { 
         $days   = Day::where('date', '=', date('Y-m-1'))->where('user_id', '=', Auth::user()->id)->exists();     
@@ -117,12 +115,6 @@ class DayController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Day  $day
-     * @return \Illuminate\Http\Response
-     */
     public function edit($day_id)
     {
         $day = Day::findOrFail($day_id);
@@ -130,19 +122,10 @@ class DayController extends Controller
         return view('diary.days.edit')->with('day', $day);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Day  $day
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $day_id)
     {
         $day = Day::findOrFail($day_id);
         $url = $request->url;
-        // $urls = str_replace('http://127.0.0.1:8000/', '', $url);
 
         $request->validate([
             'image' => 'max:1048|mimes:png,jpg,jpeg,gif'
@@ -168,12 +151,6 @@ class DayController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Day  $day
-     * @return \Illuminate\Http\Response
-     */
     public function reset($day_id)
     {
         $day = Day::findOrFail($day_id);

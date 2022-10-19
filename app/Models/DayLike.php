@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class DayLike extends Model
 {
@@ -14,11 +13,11 @@ class DayLike extends Model
 
     public function user()
     {
-      return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function day()
     {
-      return $this->belongsTo(day::class);
+        return $this->belongsTo(day::class);
     }
 }

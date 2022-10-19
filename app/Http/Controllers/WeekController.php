@@ -7,26 +7,13 @@ use Illuminate\Http\Request;
 
 class WeekController extends Controller
 {
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Week  $week
-     * @return \Illuminate\Http\Response
-     */
     public function edit($week_id)
     {
         $week = Week::findOrFail($week_id);
 
         return view('diary.weeks.edit', compact('week'));    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Week  $week
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $week_id)
     {
         $url = $request->url;
@@ -43,12 +30,6 @@ class WeekController extends Controller
         return redirect($url);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Week  $week
-     * @return \Illuminate\Http\Response
-     */
     public function reset($week_id)
     {
         $week = Week::findOrFail($week_id);

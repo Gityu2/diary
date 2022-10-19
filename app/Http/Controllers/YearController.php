@@ -10,12 +10,6 @@ use Carbon\Carbon;
 
 class YearController extends Controller
 {
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Year  $year
-     * @return \Illuminate\Http\Response
-     */
     public function show(Request $request)
     {
         $year_info   = $request->year_info;
@@ -38,12 +32,7 @@ class YearController extends Controller
                 ->with('year_months', $year_months)
                 ->with('year_weeks', $year_weeks);
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Year  $year
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($year_id)
     {
         $year = Year::findOrFail($year_id);
@@ -51,13 +40,7 @@ class YearController extends Controller
         return view('diary.years.edit', compact('year'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Year  $year
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $year_id)
     {
         $url  = $request->url;
@@ -72,12 +55,6 @@ class YearController extends Controller
         return redirect($url);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Year  $year
-     * @return \Illuminate\Http\Response
-     */
     public function reset($year_id)
     {
         $year = Year::findOrFail($year_id);

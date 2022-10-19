@@ -22,7 +22,6 @@ class CreateDaysTable extends Migration
             $table->text('next_action')->nullable();
             $table->string('image', 50)->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            // $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

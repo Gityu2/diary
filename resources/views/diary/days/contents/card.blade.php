@@ -4,7 +4,13 @@
         <div class="card mb-5">
             <div class="card-header">
                 <div class="row justify-content-between">
-                    <div class="col-auto">{{ date('n/j(D)', strtotime($day->date)) }}</div>
+                    <div class="col-auto">
+                        @if (request()->is('diary/like/show/*'))
+                            {{ date('Y-n/j(D)', strtotime($day->date)) }}
+                        @else
+                            {{ date('n/j(D)', strtotime($day->date)) }}
+                        @endif      
+                    </div>
                     <div class="col-auto px-0">
                         @include('diary.days.contents.menu')
                         @include('diary.days.modal.status')              

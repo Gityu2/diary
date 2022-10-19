@@ -21,7 +21,6 @@ class CreateMonthsTable extends Migration
             $table->text('lesson')->nullable();
             $table->text('next_action')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            // $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
