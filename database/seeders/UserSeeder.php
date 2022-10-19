@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Faker\Factory as Faker;
+use App\Models\User;
+
 
 
 class UserSeeder extends Seeder
@@ -17,91 +18,34 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            ['id'  => 1,
-            'name' => 'admin',
-            'email' => 'admin'.'@'.'admin',
-            'password' => Hash::make('password'),
-            'role_id' => 1,
-            ],
-            ['id'  => 2,
-            'name' => 'user',
-            'email' => 'user'.'@'.'user',
-            'password' => Hash::make('password'),
-            'role_id' => 2,
+        $faker = Faker::create('en_US');
 
-            ],
-            ['id'  => 3,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
+        User::create([
+            
+                'id'   =>1,
+                'name' => 'admin',
+                'email' => 'admin'.'@'.'admin',
+                'password' => Hash::make('password'),
+                'role_id' => 1,
+        ]);
 
-            ],
-            ['id'  => 4,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
+        User::create([
+            
+                'id'   =>2,
+                'name' => 'user',
+                'email' => 'user'.'@'.'user',
+                'password' => Hash::make('password'),
+                'role_id' => 2,
 
-            ],
-            ['id'  => 5,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
+        ]);
 
-            ],
-            ['id'  => 6,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ],
-            ['id'  => 7,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ],
-            ['id'  => 8,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ],
-            ['id'  => 9,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ],
-            ['id'  => 10,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ],
-            ['id'  => 11,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ],
-            ['id'  => 12,
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@'.Str::random(10),
-            'password' => Hash::make('password'),
-            'role_id' => 2,
-
-            ]
-
-        ]);    
+        for($i = 0; $i < 48; $i++){
+            User::create([
+                'name' => $faker->userName,
+                'email' => $faker->safeEmail,
+                'password' => Hash::make('password'),
+                'role_id' => 2,
+            ]);
+        }
     }
 }

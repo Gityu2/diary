@@ -15,7 +15,16 @@
             <tr>
                 <td>
                     <div class="row">
-                        <div class="col-6">{{ date('n/j', strtotime($day->date)) }}</div>
+                        <div class="col-6 text-center">
+                            @if (request()->is('diary/like/show/*'))
+                            {{ date('n/j', strtotime($day->date)) }}                        
+                            <br>
+                            <span class="small">({{ date('Y', strtotime($day->date)) }})</span>
+                            @else
+                            {{ date('n/j', strtotime($day->date)) }}
+                            @endif                            
+                        </div>
+
                         <div class="col-6 ps-0">{{ date('D', strtotime($day->date)) }}</div>
                     </div>
                 </td>

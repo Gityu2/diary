@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>{{ date('Y', strtotime($year->date)) }}</td>
+                <td class="text-center">{{ date('Y', strtotime($year->date)) }}</td>
                 <td>{{ $year->fact }}</td>
                 <td>{{ $year->discovery }}</td>
                 <td>{{ $year->lesson }}</td>

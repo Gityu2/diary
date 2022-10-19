@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class MonthController extends Controller
 {
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Month  $month
-     * @return \Illuminate\Http\Response
-     */
     public function showList(Request $request)  
     {
         list($years, $month, $month_weeks, $month_days) = Month::getSearchDate($request);
@@ -54,12 +48,6 @@ class MonthController extends Controller
         endforeach;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Month  $month
-     * @return \Illuminate\Http\Response
-     */
     public function edit($month_id)
     {
         $month = Month::findOrFail($month_id);
@@ -67,13 +55,7 @@ class MonthController extends Controller
         return view('diary.months.edit', compact('month'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Month  $month
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $month_id)
     {
         $url   = $request->url;
@@ -88,12 +70,6 @@ class MonthController extends Controller
         return redirect($url);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Month  $month
-     * @return \Illuminate\Http\Response
-     */
     public function reset($month_id)
     {
         $month = Month::findOrFail($month_id);

@@ -37,8 +37,8 @@
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="{{ route('diary.day.create') }}">
-            <img src="{{ asset('images/logo-white.png') }}" alt="4S Diary" style="height: 30px">
+        <a class="navbar-brand ps-3" href="/">
+            <img src="{{ asset('images/logo-white.png') }}" alt="4S Diary" class="logo">
         </a>
         <!-- Sidebar Toggle-->
         @if (request()->is('diary/*' , 'admin/*'))

@@ -17,7 +17,6 @@ class CreateDayLikesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('day_id');
-            // $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');

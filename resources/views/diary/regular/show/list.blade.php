@@ -32,8 +32,8 @@
             <tbody>
                 @foreach ($days as $index => $day)  
                 <tr>
-                    @if ($index !== '1 year' && $day !== null)
-                        <td>{{ $index }} ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('n/j (D)', strtotime($day->date)) }} -</span></td>
+                    @if ($day !== null)
+                        <td class="text-center">{{ $index }} ago<br><span class="small">- {{ date('n/j (D)', strtotime($day->date)) }} -</span></td>
                         <td>{{ $day->fact }}</td>
                         <td>{{ $day->discovery }}</td>
                         <td>{{ $day->lesson }}</td>
@@ -47,12 +47,12 @@
                         </td>
                         @endif
                     @else
-                        <td> 1 year ago<br><span class="small" style="font-size: 0.7rem;">- {{ date('Y/n/j (D)', strtotime('-1 year')) }} -</span></td>
+                        <td class="text-center"> 1 year ago<br><span class="small">- {{ date('n/j (D)', strtotime('-1 year')) }} - <br>({{ date('Y', strtotime('-1 year')) }})</span></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="data-size">※No data</td>
+                        <td class="data-size text-nowrap">※No data</td>
                     @endif
                 </tr>    
                 @endforeach     

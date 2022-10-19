@@ -14,7 +14,7 @@
         <tbody>
             @foreach ($year_months as $month)
             <tr>
-                <td>{{ date('M', strtotime($month->date)) }}</td>
+                <td class="text-center">{{ date('M', strtotime($month->date)) }}</td>
                 <td>{{ $month->fact }} </td>
                 <td>{{ $month->discovery }}</td>
                 <td>{{ $month->lesson }}</td>
