@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
 
         ]);
 
-        for($i = 0; $i < 48; $i++){
+        for($i = 0; $i < 50; $i++){
             User::create([
                 'name' => $faker->userName,
                 'email' => $faker->safeEmail,

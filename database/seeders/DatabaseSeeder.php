@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Day;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,8 +21,6 @@ class DatabaseSeeder extends Seeder
             YearSeeder::class,
             DayLikeSeeder::class,
         ]);
-
-        // Day::factory(30)->create();
 
     }
 }
