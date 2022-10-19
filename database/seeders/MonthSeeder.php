@@ -32,5 +32,18 @@ class MonthSeeder extends Seeder
                 'user_id' => 2
             ]);
         }
+
+        $last_year_months = CarbonPeriod::create(Carbon::create(now())->subYear()->startOfYear(), Carbon::create(now())->subYear()->endOfYear())->month();
+
+        foreach($last_year_months as $month){
+            Month::create([
+                'date' => $month,
+                'fact' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'discovery' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'lesson' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'next_action' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'user_id' => 2
+            ]);
+        }
     }
 }

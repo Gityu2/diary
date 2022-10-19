@@ -29,7 +29,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'],function(){
+Route::group(['middleware' => ['auth', 'diary']],function(){
 
     Route::group(['prefix' => 'diary', 'as' => 'diary.'] ,function(){
         Route::group(['prefix' => 'day', 'as' => 'day.'] ,function(){

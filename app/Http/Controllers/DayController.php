@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Day;
-use App\Models\Week;
-use App\Models\Month;
-use App\Models\Year;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -17,27 +14,6 @@ class DayController extends Controller
     
     public function create()
     { 
-        $days   = Day::where('date', '=', date('Y-m-1'))->where('user_id', '=', Auth::user()->id)->exists();     
-        $weeks  = Week::where('date', '=', date('Y-1-1'))->where('user_id', '=', Auth::user()->id)->exists();   
-        $months = Month::where('date', '=', date('Y-1-1'))->where('user_id', '=', Auth::user()->id)->exists();   
-        $year   = Year::where('date', '=', date('Y-1-1'))->where('user_id', '=', Auth::user()->id)->exists();   
-        
-        if(empty($days)):
-            Day::storeMonthDays();
-        endif;
-
-        if(empty($weeks)):
-            Day::storeYearWeek();
-        endif;
-
-        if(empty($months)):
-            Day::storeYearMonth();
-        endif;
-
-        if(empty($year)):
-            Day::storeYear();
-        endif;
-
         return view('diary.days.create');
     }
 

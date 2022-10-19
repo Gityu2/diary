@@ -14,7 +14,14 @@
         <tbody>
             @foreach ($year_months as $month)
             <tr>
-                <td class="text-center">{{ date('M', strtotime($month->date)) }}</td>
+                <td class="text-center">
+                    @if (request()->is('diary/search/*'))
+                        {{ date('M', strtotime($month->date)) }}                       
+                        <br>
+                        <span class="small">({{ date('Y', strtotime($month->date)) }})</span>
+                    @else
+                        {{ date('M', strtotime($month->date)) }}                       
+                    @endif  
                 <td>{{ $month->fact }} </td>
                 <td>{{ $month->discovery }}</td>
                 <td>{{ $month->lesson }}</td>
