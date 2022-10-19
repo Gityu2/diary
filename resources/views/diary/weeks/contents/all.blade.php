@@ -14,7 +14,15 @@
         <tbody>
             @foreach ($year_weeks as $week )
             <tr>
-                <td class="text-center">{{ $week->week }} week <br><span class="small">({{ date('n/j',strtotime('last monday', strtotime($week->date))) }}- {{ date('n/j',strtotime('sunday', strtotime($week->date))) }})</span></td>
+                <td class="text-center">
+                    @if (request()->is('diary/search/*'))
+                        {{ $week->week }} week <br><span class="small">({{ date('n/j',strtotime('last monday', strtotime($week->date))) }}- {{ date('n/j',strtotime('sunday', strtotime($week->date))) }})</span>
+                    <br>
+                        <span class="small">({{ date('Y', strtotime($week->date)) }})</span>
+                    @else
+                        {{ $week->week }} week <br><span class="small">({{ date('n/j',strtotime('last monday', strtotime($week->date))) }}- {{ date('n/j',strtotime('sunday', strtotime($week->date))) }})</span>
+                    @endif                      
+                </td>
                 <td>{{ $week->fact }}</td>
                 <td>{{ $week->discovery }}</td>
                 <td>{{ $week->lesson }}</td>

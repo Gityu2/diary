@@ -34,18 +34,18 @@ class DaySeeder extends Seeder
             ]);
         }
 
-        // $lat_year_days = CarbonPeriod::create(Carbon::create(now())->subYear()->startOfYear(), Carbon::create(now())->subYear()->endOfYear()); 
+        $lat_year_days = CarbonPeriod::create(Carbon::create(now())->subYear()->startOfYear(), Carbon::create(now())->subYear()->endOfYear()); 
         
-        // foreach($lat_year_days as $day){
-        //     Day::create([
-        //         'date' => $day,
-        //         'fact' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        //         'discovery' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        //         'lesson' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        //         'next_action' => $faker->realText($maxNbChars = 100, $indexSize = 2),
-        //         'user_id' => 2
-        //     ]);
-        // }
+        foreach($lat_year_days as $day){
+            Day::create([
+                'date' => $day,
+                'fact' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'discovery' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'lesson' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'next_action' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'user_id' => 2
+            ]);
+        }
 
     }
 }

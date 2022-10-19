@@ -28,5 +28,14 @@ class YearSeeder extends Seeder
                 'next_action' => $faker->realText($maxNbChars = 100, $indexSize = 2),
                 'user_id' => 2
             ]);
+
+            Year::create([
+                'date' => Carbon::create(now())->subYear()->startOfYear(),
+                'fact' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'discovery' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'lesson' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'next_action' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+                'user_id' => 2
+            ]);
     }
 }
