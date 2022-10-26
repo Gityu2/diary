@@ -7,23 +7,41 @@ use App\Models\Month;
 use App\Models\Week;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class YearController extends Controller
 {
     public function show(Request $request)
     {
         $year_info   = $request->year_info;
-        $years       = Year::get();
+        $years       = Year::where('user_id', '=',Auth::user()->id)->get();
 
         if ($year_info) {
-            $year        = Year::where('date', '=', Carbon::create($year_info . '-1-1'))->first();
-            $year_months = Month::whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])->get();
-            $year_weeks  = Week::whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])->get();
+            $year        = Year::where('date', '=', Carbon::create($year_info . '-1-1'))
+                                ->where('user_id', '=',Auth::user()->id)
+                                ->first();
+
+            $year_months = Month::whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])
+                                ->where('user_id', '=',Auth::user()->id)
+                                ->get();
+
+            $year_weeks  = Week::whereBetween('date', [Carbon::create($year_info . '-1-1'), Carbon::create($year_info . '-12-31')])
+                                ->where('user_id', '=',Auth::user()->id)
+                                ->get();
 
         } else {
-            $year        = Year::where('date', '=', now()->format('Y-1-1'))->first();
-            $year_months = Month::whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])->get();
-            $year_weeks  = Week::whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])->get();
+            $year        = Year::where('date', '=', now()->format('Y-1-1'))
+                                ->where('user_id', '=',Auth::user()->id)
+                                ->first();
+                                
+            $year_months = Month::whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])
+                                ->where('user_id', '=',Auth::user()->id)
+                                ->get();
+
+            $year_weeks  = Week::whereBetween('date', [Carbon::create(now())->startOfYear(), Carbon::create(now())->endOfYear()])
+                                ->where('user_id', '=',Auth::user()->id)
+                                ->get();
         };
 
         return view('diary.years.show')
