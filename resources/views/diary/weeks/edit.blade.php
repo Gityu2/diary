@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="container w-50">
+    <div class="container width">
 
         <h1 class="text-center mt-3">Edit Entry(Week)</h1>
         <form action="{{ route('diary.week.update', $week->id) }}" method="post" enctype="multipart/form-data">

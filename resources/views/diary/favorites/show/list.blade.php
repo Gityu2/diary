@@ -8,7 +8,7 @@
 
 @section('content')
     @if ($month_days->isNotEmpty())
-        <div class="container px-5 mt-3">
+        <div class="container mt-3">
             <div class="row justify-content-between mt-5">
                 <div class="col-auto">
                     <h1 class="h2">Days</h1>
