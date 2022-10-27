@@ -7,7 +7,7 @@
 @endsection
     
 @section('content')
-    <div class="px-5 mt-3">
+    <div class="container mt-3">
         <h2 class="fs-4 fw-light mb-3">Search for <u>{{ $keyword }}</u></h2>
         @if ($keyword)
             @if ($years->isNotEmpty())

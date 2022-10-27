@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="px-5 mt-5">
+    <div class="container mt-5">
         <div class="row justify-content-between">
             <div class="col-auto">
                 <h1 class="h2">Days</h1>

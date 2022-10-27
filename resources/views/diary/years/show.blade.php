@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="container px-5 mt-2">
+<div class="container mt-2">
     @include('diary.years.contents.search')
 
     @include('diary.years.contents.current')

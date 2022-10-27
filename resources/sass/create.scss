@@ -1,3 +1,19 @@
+.width{
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .width{
+        width: 75%;
+    }
+}
+
+@media (max-width: 576px) {
+    .width{
+        width:90%;
+    }
+}
+
 ::placeholder {
     font-size: 14px;
 }

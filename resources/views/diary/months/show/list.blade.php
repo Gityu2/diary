@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="container px-5 mt-2">
+    <div class="container mt-2">
         @include('diary.months.contents.search')
 
         @include('diary.months.contents.current')

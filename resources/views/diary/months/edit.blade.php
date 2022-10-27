@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="container w-50">
+    <div class="container width">
         <h1 class="text-center mt-3">Edit Entry(Month)</h1>
         <form action="{{ route('diary.month.update', $month->id) }}" method="post" enctype="multipart/form-data">
         @csrf
