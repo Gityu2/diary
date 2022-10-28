@@ -93,7 +93,6 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        @if (Auth::user()->role_id == 2)
                         <form action="{{ route('diary.search.show.list') }}" method="get" class="px-3 mt-3">
                             @csrf
                             <div class="input-group">
@@ -102,6 +101,9 @@
                                 <button type="submit" class=" form-control" style="display:none;"></button>
                             </div>
                         </form>
+                        @if (Auth::user()->role_id == 1)
+                        <a href="{{ route('admin.show.dashboard') }}" class="nav-link {{ request()->is('diary/like/show/*') ? 'text-white':''}}"><i class="fa-solid fa-chart-line list_icon"></i></i> Dashboard</a>
+                        @endif
                         <a href="{{ route('diary.day.create') }}" class="nav-link {{ request()->is('diary/day/create') ? 'text-white':''}}"><i class="fa-solid fa-file-circle-plus list_icon"></i> New Entry (Day)</a>
                         <a href="{{ route('diary.day.show.regular.list') }}" class="nav-link {{ request()->is('diary/day/show/regular/*') ? 'text-white':''}}"><i class="fa-solid fa-calendar-days list_icon"></i> Reglarly Reveiw</a>
                         <a href="{{ route('diary.month.show.list') }}" class="nav-link {{ request()->is('diary/month/show/*') ? 'text-white':''}}"><i class="fa-solid fa-calendar-days list_icon"></i> Monthly  Reveiw</a>
@@ -110,10 +112,6 @@
                         <a type="button" class="ms-4 text-decoration-none text-danger list_icon" style="font-size: 0.8rem;" data-bs-toggle="modal" data-bs-target="#delete-account" >
                             Delete your account
                         </a>
-                        @endif
-                        @if (Auth::user()->role_id == 1)
-                        <a href="{{ route('admin.show.dashboard') }}" class="nav-link {{ request()->is('diary/like/show/*') ? 'text-white':''}}"><i class="fa-solid fa-chart-line list_icon"></i></i> Dashboard</a>
-                        @endif
 
                     </div>
                 </div>
