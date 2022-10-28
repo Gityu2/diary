@@ -19,3 +19,16 @@
         width:75%;
     }
 }
+
+.modal-body{
+    text-align: start;
+
+    .message{
+        font-size: 16px;
+    }
+    .detail{
+        font-size: 14px;
+        color: rgb(220, 53, 69);
+        white-space: normal;
+    }
+}

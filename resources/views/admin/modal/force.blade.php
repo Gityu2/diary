@@ -6,8 +6,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure to delete this account ?</p>
-                <p class="text-danger small">You will permanently delete this account and all associated contents.<br>Please make sure that you want to delete everything on this account before proceeding.You will not be able to recover this user contents after you delete this account!</p>
+                <p class="message">Are you sure to delete this account ?</p>
+                <p class="detail">You will permanently delete this account and all associated contents.Please make sure that you want to delete everything on this account before proceeding.You will not be able to recover this user contents after you delete this account!</p>
 
             </div>
             <div class="modal-footer">
