@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Favorite card')
+@section('title', ' - Favorite')
 
 @section('style')
     <link href="{{ mix('css/card.css') }}" rel="stylesheet">

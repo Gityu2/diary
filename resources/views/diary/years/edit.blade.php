@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit year')
+@section('title', ' - Edit year')
 
 @section('style')
     <link href="{{ mix('css/create.css') }}" rel="stylesheet">

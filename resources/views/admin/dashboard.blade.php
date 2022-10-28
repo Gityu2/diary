@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Dashboard')
+@section('title', ' - Dashboard')
 
 @section('style')
     <link href="{{ mix('css/table.css') }}" rel="stylesheet">
