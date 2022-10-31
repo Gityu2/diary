@@ -1,64 +1,96 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+
+[![Image from Gyazo](https://i.gyazo.com/113eb946fe04df12ce86e9b1d4dd9d61.png)](https://gyazo.com/113eb946fe04df12ce86e9b1d4dd9d61)
+
+
+## 
+
+## ■Title
+
+4S Diary
+
+## ■Overview
+
+This diary make users grow by simply writing 4 lines a day.
+
+## ■Issue
+
+- Although we think keeping a diary is important, we find it tedious to write.
+
+- Although the diary gets meaningful when we look it back regularly, we find it tedious to do.
+
+- When we spend our days busy studying and working, we miss out on opportunities for growth.
+In other words, time has passed without growth.
+
+## ■How to solve these issues
+
+- Provides a simplified diary style that requires only 5 minutes a day to keep going.
+
+- Display the ently to look back.(1 week ago, 1 month ago and so forth)
+Also, create a page where users can look back monthly and yearly
+
+- Lower the bar of writing a daily diary and make it a habit.
+
+## ■User benefits
+
+- Users can grow by finding and improving our awareness (growth opportunities) on a daily basis.
+
+- Users will be able to view themselves objectively, which will make it easier to control their emotions and actions. As a result, they will be able to focus on what is necessary for them without letting cravings get the best of them.
+
+- Users will be able to face up to the events (facts) instead of falling into self-loathing. When they are able to find specific areas for improvement and actually improve them, they will feel a sense of self-affirmation, and thier life will enter a positive spiral.
+
+## ■Target
+
+- People who are motivated but unable to continue.
+
+- Those who have a desire to grow, but have difficulty feeling a sense of growth and as a result, suffer from self-loathing.
+
+## ■How to use
+
+Simply write the followings , one line each, for a total of 4 lines.
+
+- Fac
+- Discovery
+- Lesson
+- Next action
+
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Top① | Top② | Login (Register) |
+| :---: | :---: | :---: |
+| [![Image from Gyazo](https://i.gyazo.com/f9ff020d88541381f461adb2861e46d5.jpg)](https://gyazo.com/f9ff020d88541381f461adb2861e46d5) | [![Image from Gyazo](https://i.gyazo.com/60d6783937c03f590f568641feddbb3f.png)](https://gyazo.com/60d6783937c03f590f568641feddbb3f) | [![Image from Gyazo](https://i.gyazo.com/6d6776ccabd547b708df3bb387612f12.jpg)](https://gyazo.com/6d6776ccabd547b708df3bb387612f12) |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Create(Edit)| List review | Card review  |
+| :---: | :---: | :---: |
+| [![Image from Gyazo](https://i.gyazo.com/3dd7048938904d8218465a8c915df12e.png)](https://gyazo.com/3dd7048938904d8218465a8c915df12e)  | [![Image from Gyazo](https://i.gyazo.com/2e8626118f59e3423c031c66ed83c82b.png)](https://gyazo.com/2e8626118f59e3423c031c66ed83c82b)  | [![Image from Gyazo](https://i.gyazo.com/e3ea8766455dfe32bc4fd57a53be12c6.jpg)](https://gyazo.com/e3ea8766455dfe32bc4fd57a53be12c6) |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Favorite | Search | Dashboard |
+| :---: | :---: | :---: |
+| [![Image from Gyazo](https://i.gyazo.com/42a5e2aefd9d258d140e77e08cdee99d.png)](https://gyazo.com/42a5e2aefd9d258d140e77e08cdee99d)  | [![Image from Gyazo](https://i.gyazo.com/364cb34acac871020a01dc1b64eea0cf.png)](https://gyazo.com/364cb34acac871020a01dc1b64eea0cf) | [![Image from Gyazo](https://i.gyazo.com/2f309131365fd9f156777a643ebce337.png)](https://gyazo.com/2f309131365fd9f156777a643ebce337) |
 
-## Learning Laravel
+## ■Function
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Authentication(Register / Login)
+- Create a entry 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+&emsp;&emsp;&emsp;└Add an image
+- Favorite
+- Pagination
+- Search
 
-## Laravel Sponsors
+## ■Test account / URL
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+◎User account
 
-### Premium Partners
+- Email : user@user
+- PW&emsp;: password
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+◎Admin account
 
-## Contributing
+- Email : admin@admin
+- PW&emsp;: password
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+◎URL
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[https://just-a-small-step.site/](https://just-a-small-step.site/)
