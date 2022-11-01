@@ -61,7 +61,7 @@ Simply write the followings , one line each, for a total of 4 lines.
 | :---: | :---: | :---: |
 | <img src="https://i.gyazo.com/f9ff020d88541381f461adb2861e46d5.jpg"> |<img src="https://i.gyazo.com/60d6783937c03f590f568641feddbb3f.png"> | <img src="https://i.gyazo.com/6d6776ccabd547b708df3bb387612f12.jpg">|
 
-| Create(Edit) |  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Card review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Create(Edit) |  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Card review&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | :---: | :---: | :---: |
 | <img src="https://i.gyazo.com/3dd7048938904d8218465a8c915df12e.png">|<img src="https://i.gyazo.com/2e8626118f59e3423c031c66ed83c82b.png"> | <img src="https://i.gyazo.com/e3ea8766455dfe32bc4fd57a53be12c6.jpg">|
 
