@@ -55,7 +55,7 @@ Simply write the followings , one line each, for a total of 4 lines.
 - Next action
 
 
-## About Laravel
+## ■Site Structure(Overview)
 
 | Top① | Top② | Login (Register) |
 | :---: | :---: | :---: |
